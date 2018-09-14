@@ -59,6 +59,9 @@ html_page %>% html_nodes(css = "div #a")
 html_page %>% html_nodes(css = "div #d")
 html_page %>% html_nodes(css = "div #a")
 
+# get different kinds of nodes by sepaerting with comma
+html_page %>% html_nodes(css = "p, input")
+
 # select all input where parent is div
 html_page %>% html_nodes(css = "div > input")
 
@@ -104,6 +107,9 @@ html_page %>% html_nodes(css = "input:nth-child(4)")
 # select elements that are not a match
 html_page %>% html_nodes(css = ":not(input)")
 html_page %>% html_nodes(css = ":not(input[class])")
+html_page %>% html_nodes(css = ":not(input[id])")
+html_page %>% html_nodes(css = ":not(p)")
+
 
 
 ##################################################################
