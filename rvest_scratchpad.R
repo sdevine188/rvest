@@ -133,5 +133,18 @@ html_page %>% html_nodes(css = "p") %>% html_text()
 html_page %>% html_nodes(css = "table") %>% html_table()
 
 
+######################################################################
+######################################################################
+######################################################################
 
+
+# get brad pitt's movies from imdb
+
+# get website html
+url <- "https://www.imdb.com/name/nm0000093/"
+html <- read_html(x = url)
+html
+
+# parse for movies
+html %>% html_nodes(css = "div[class = 'filmo-category-section'] div[id *= 'actor'] b") %>% html_text()
 
