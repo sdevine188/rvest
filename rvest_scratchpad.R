@@ -1,6 +1,7 @@
 library(tidyverse)
 library(rvest)
 library(magrittr)
+# library(keyboardSimulator)
 
 # https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/
 
@@ -8,6 +9,8 @@ library(magrittr)
 # https://www.w3schools.com/cssref/css_selectors.asp
 
 # crate html doc as string
+# note: you can right-click a chrome browser page and click "Inspect view page source" then copy/paste into r as string
+# the keyboardSimulator package and readClipboard() can be useful for this
 doc <- '<div class = "style">
                 <input id = "a" value = "123"></input>
                         <div class = "inner_div" id = "c">
