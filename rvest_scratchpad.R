@@ -1,5 +1,6 @@
 library(tidyverse)
 library(rvest)
+library(magrittr)
 
 # https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/
 
@@ -47,6 +48,10 @@ html_page
 # get tag
 html_page %>% html_nodes(css = "div")
 html_page %>% html_nodes(css = "input")
+
+# get specific subset of a list of nodes using magrittr's extract
+html_page %>% html_nodes(css = "input") %>% extract(2:4)
+html_page %>% html_nodes(css = "input") %>% extract(c(2, 5))
 
 # get class
 html_page %>% html_nodes(css = ".test_class")
