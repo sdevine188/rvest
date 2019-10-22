@@ -156,3 +156,26 @@ html
 # parse for movies
 html %>% html_nodes(css = "div[class = 'filmo-category-section'] div[id *= 'actor'] b") %>% html_text()
 
+
+######################################################################
+######################################################################
+######################################################################
+
+
+# for websites with dynamically loaded html, use selenium in python
+# which can just copy all dynamically-loaded html as text with driver.page_source
+# then you can load the raw html into r for further analysis
+
+# note the example_raw_html_df.csv was produced using selenium_scratchpad.py
+# saved at'C:\\Users\\Stephen\\Desktop\\Python\\selenium'
+
+# load a raw_html_df pulled by selenium in python
+raw_html_df <- read_csv("example_raw_html_df.csv")
+raw_html_df %>% glimpse()
+
+# read html
+html_page <- read_html(raw_html_df %>% pull(raw_html))
+
+# inspect
+html_page
+html_page %>% html_nodes(css = "h3 a[class = 'l']") %>% html_attr("href")
